@@ -1,25 +1,25 @@
 {
-    "name": "react-native-photo-editor",
-    "version": "1.0.10",
-    "description": "React Native: Native Photo Editor",
-    "main": "index.tsx",
-    "homepage": "https://github.com/prscX/react-native-photo-editor.git",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/prscX/react-native-photo-editor.git"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "react-native"
-    ],
-    "author": "Pranav Raj Singh Chauhan",
-    "devDependencies": {
-        "@types/react": "^16.9.49",
-        "@types/react-native": "^0.63.18",
-        "typescript": "^4.0.2",
-        "prettier": "^2.1.1"
-    },
-    "license": "Apache License 2.0"
+  "name": "react-native-photo-editor",
+  "version": "1.0.10",
+  "description": "MechPic photo editor wrapper for React Native (Kalos reconstruction of the contractor fork zoran888/mechpic-image-editor, based on prscX/react-native-photo-editor v1.0.10)",
+  "main": "index.tsx",
+  "homepage": "https://github.com/kalos-software/mechpic-image-editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kalos-software/mechpic-image-editor.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Pranav Raj Singh Chauhan",
+  "devDependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-native": "^0.63.18",
+    "typescript": "^4.0.2",
+    "prettier": "^2.1.1"
+  },
+  "license": "Apache License 2.0"
 }

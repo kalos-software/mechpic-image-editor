@@ -1,3 +1,22 @@
+# mechpic-image-editor (`react-native-photo-editor` for MechPic)
+
+> **Reconstruction, 2026-09-09.** The MechPic app (`kalos-software/mechpic-mobile`) depended on a private contractor fork, `zoran888/mechpic-image-editor` (package `react-native-photo-editor` 1.0.10, pinned to commit `a67a344`), which Kalos cannot access. This repository rebuilds that dependency from what is public and verifiable:
+>
+> - **Base:** upstream `prscX/react-native-photo-editor` at tag `v10.010` (= 1.0.10, commit `fe857b3`, 2021-01-26), the version the contractor forked. Upstream history is retained below this commit.
+> - **Android editor UI:** `com.github.kalos-software:android-photo-editor` via JitPack, a fork of the contractor's public `zoran888/android-photo-editor` (itself a fork of eventtus/photo-editor-android, package `com.ahmedadeltito.photoeditor`, with the contractor's font changes from 2021-07). The shipped Android 2.2.0 build resolved `com.github.zoran888:android-photo-editor` from JitPack, so this matches what users run.
+> - **iOS editor UI:** the app's `Podfile` supplies `iOSPhotoEditor` from `kalos-software/ios-photo-editor`, a fork of the contractor's public `zoran888/ios-photo-editor`.
+> - **JS API:** unchanged from upstream (`PhotoEditor.Edit({ path, colors, stickers, hiddenControls, onDone, onCancel })`), which is exactly what the app calls and what the shipped 2.2.0 JS bundle contains.
+>
+> Unknown: whatever the contractor changed inside the wrapper itself between upstream 1.0.10 and `a67a344`, and the `patch-package` patch applied during the 2026-04-01 build. Both are lost with the private repo and the untracked build directory. Native module classes in the shipped build (`ui.photoeditor.*`, `com.ahmedadeltito.photoeditor.*`) match this layout. **Not yet build-verified**; see the mechpic-mobile `release/2.2.0` branch.
+
+Consumed from the app as:
+
+```json
+"react-native-photo-editor": "github:kalos-software/mechpic-image-editor#<commit>"
+```
+
+---
+
 <h1 align="center">
 
 <p align="center">
