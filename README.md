@@ -7,7 +7,7 @@
 > - **iOS editor UI:** the app's `Podfile` supplies `iOSPhotoEditor` from `kalos-software/ios-photo-editor`, a fork of the contractor's public `zoran888/ios-photo-editor`.
 > - **JS API:** unchanged from upstream (`PhotoEditor.Edit({ path, colors, stickers, hiddenControls, onDone, onCancel })`), which is exactly what the app calls and what the shipped 2.2.0 JS bundle contains.
 >
-> Unknown: whatever the contractor changed inside the wrapper itself between upstream 1.0.10 and `a67a344`, and the `patch-package` patch applied during the 2026-04-01 build. Both are lost with the private repo and the untracked build directory. Native module classes in the shipped build (`ui.photoeditor.*`, `com.ahmedadeltito.photoeditor.*`) match this layout. **Not yet build-verified**; see the mechpic-mobile `release/2.2.0` branch.
+> Reconstructed from the fork's API (2026-09-10): the fork's `PhotoEditorSDK.addText(text, color, Typeface)` renders stroked Impact text, so the wrapper now loads `font/impact.ttf` from the SDK library's assets and passes it, mirroring the fork's sample app. Still unknown: any other change the contractor made inside the wrapper between upstream 1.0.10 and `a67a344`, and the `patch-package` patch applied during the 2026-04-01 build. Both are lost with the private repo and the untracked build directory. Native module classes in the shipped build (`ui.photoeditor.*`, `com.ahmedadeltito.photoeditor.*`) match this layout. **Not yet build-verified**; see the mechpic-mobile `release/2.2.0` branch.
 
 Consumed from the app as:
 

@@ -72,6 +72,7 @@ import ui.photoeditor.R;
 public class PhotoEditorActivity extends AppCompatActivity implements View.OnClickListener, OnPhotoEditorSDKListener {
 
     public static Typeface emojiFont = null;
+    private Typeface textFont = null;
 
     protected static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_GALLERY = 0x1;
     final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
@@ -134,6 +135,13 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         Typeface fontAwesome = getFontFromRes(R.raw.font_awesome_solid);
 
         emojiFont = getFontFromRes(R.raw.emojioneandroid);
+        // The contractor's android-photo-editor fork renders added text as stroked Impact text and
+        // requires a Typeface; the SDK library ships the font in its assets (font/impact.ttf).
+        try {
+            textFont = Typeface.createFromAsset(getAssets(), "font/impact.ttf");
+        } catch (Exception e) {
+            textFont = Typeface.DEFAULT_BOLD;
+        }
 
         BrushDrawingView brushDrawingView = (BrushDrawingView) findViewById(R.id.drawing_view);
         drawingViewColorPickerRecyclerView = (RecyclerView) findViewById(R.id.drawing_view_color_picker_recycler_view);
@@ -321,7 +329,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void addText(String text, int colorCodeTextView) {
-        photoEditorSDK.addText(text, colorCodeTextView);
+        photoEditorSDK.addText(text, colorCodeTextView, textFont);
     }
 
     private void clearAllViews() {
